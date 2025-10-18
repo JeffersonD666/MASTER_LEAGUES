@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASTER LEAGUES - Comunidad de Gaming</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header y menú de navegación -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo-container">
+                    <a href="index.html" class="logo-link">
+                        <img src="logo.png" alt="MASTER LEAGUES" class="logo-imagen">
+                        <div class="logo-text">MASTER LEAGUES</div>
+                    </a>
+                </div>
+                <ul class="nav-links">
+                    <li><a href="#">INICIO</a></li>
+                    <li><a href="#">CAMPEONES</a></li>
+                    <li>
+                        <a href="#">LIGAS <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">STREET</a></li>
+                            <li><a href="#">SPARTAN</a></li>
+                            <li><a href="#">PERSIAN</a></li>
+                            <li><a href="#">GANGS</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">COPAS <i class="fas fa-chevron-down"></i></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Pharaoh's</a></li>
+                            <li><a href="#">EMPEROR</a></li>
+                            <li><a href="#">LATAM</a></li>
+                            <li><a href="#">CHAMPIONS LEAGUE</a></li>
+                            <li><a href="#">Internazional</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">BIOGRAFIAS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección principal con slider completo -->
+    <section class="hero-section">
+        <div class="slider-container">
+            <div class="slider">
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Noticia 1">
+                    <div class="slide-overlay">
+                        <h3>Nuevo Campeón de la Liga Street</h3>
+                        <p>Descubre quién se llevó la victoria en la última edición</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2071&q=80" alt="Noticia 2">
+                    <div class="slide-overlay">
+                        <h3>Próximo Torneo Internacional</h3>
+                        <p>Inscripciones abiertas para la Champions League</p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <img src="https://images.unsplash.com/photo-1542751110-97427bbecf20?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2084&q=80" alt="Noticia 3">
+                    <div class="slide-overlay">
+                        <h3>Biografía Destacada</h3>
+                        <p>Conoce la historia del legendario jugador SpartanX</p>
+                    </div>
+                </div>
+            </div>
+            <!-- En el slider-content del index.html -->
+            <div class="slider-content">
+                <h2 id="slide-title">Nuevo Campeón de la Liga Street</h2>
+                <p id="slide-description">Descubre quién se llevó la victoria en la última edición de nuestra prestigiosa liga.</p>
+                <a href="noticia1.html" class="btn" id="slide-link">Leer más</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Quiénes Somos -->
+    <section class="about-section">
+        <div class="container">
+            <h2>¿QUIÉNES SOMOS?</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>MASTER LEAGUES es una comunidad apasionada por los torneos competitivos y el espíritu de superación. Nacimos con la visión de crear un espacio donde jugadores de todos los niveles puedan competir, crecer y formar parte de algo más grande.</p>
+                    <p>Organizamos ligas y copas en diferentes categorías, desde las calles hasta los escenarios internacionales, siempre manteniendo los valores de respeto, deportividad y excelencia competitiva.</p>
+                    <p>Nuestra comunidad sigue creciendo día a día, uniendo a jugadores de diferentes regiones que comparten la misma pasión por la competencia y el deseo de convertirse en leyendas.</p>
+                    <a href="#" class="btn">Únete a nosotros</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" alt="Comunidad MASTER LEAGUES">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Videos -->
+    <!-- Sección de Videos con iframes -->
+    <section class="videos-section">
+        <div class="container">
+            <h2>VIDEOS DESTACADOS</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <div class="video-iframe">
+                        <iframe 
+                            src="https://www.youtube.com/embed/qoET91un-9Q?si=V1AXx9XTy1h7ca32" 
+                            title="Final Liga Street 2023"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Final Liga Street 2023</h3>
+                        <p>Revive los momentos más emocionantes de la gran final</p>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-iframe">
+                        <!-- Para Instagram, necesitarías usar su API oficial -->
+                        <div class="instagram-placeholder">
+                            <i class="fab fa-instagram"></i>
+                            <p>Video de Instagram</p>
+                            <a href="https://www.instagram.com/p/TU_ID_DE_REEL_1/" target="_blank" class="btn">Ver en Instagram</a>
+                        </div>
+                    </div>
+                    <div class="video-info">
+                        <h3>Entrevista con el Campeón</h3>
+                        <p>Conoce al ganador de la última edición de la Copa Emperor</p>
+                    </div>
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-iframe">
+                        <iframe 
+                            src="https://www.youtube.com/embed/TU_ID_DE_VIDEO_2" 
+                            title="Mejores Jugadas del Mes"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="video-info">
+                        <h3>Mejores Jugadas del Mes</h3>
+                        <p>Las jugadas más espectaculares de nuestra comunidad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Iconos flotantes de redes sociales -->
+    <div class="social-floating">
+        <div class="social-main">
+            <i class="fab fa-youtube"></i>
+        </div>
+        <div class="social-icons">
+            <a href="#" class="social-icon instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="#" class="social-icon tiktok">
+                <i class="fab fa-tiktok"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <div class="logo">ML</div>
+                    <div class="logo-text">MASTER LEAGUES</div>
+                </div>
+                <div class="footer-links">
+                    <a href="#">INICIO</a>
+                    <a href="#">CAMPEONES</a>
+                    <a href="#">LIGAS</a>
+                    <a href="#">COPAS</a>
+                    <a href="#">BIOGRAFIAS</a>
+                </div>
+                <p class="copyright">&copy; 2023 MASTER LEAGUES. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
