@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin - MASTER LEAGUES</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="noticia-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .admin-header {
+            background: var(--color-gris);
+            padding: 20px 0;
+            border-bottom: 2px solid var(--color-dorado);
+        }
+        
+        .admin-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .admin-actions {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .admin-btn {
+            padding: 10px 20px;
+            background: var(--color-dorado);
+            color: var(--color-negro);
+            border: none;
+            border-radius: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .admin-btn:hover {
+            background: var(--color-blanco);
+            transform: translateY(-2px);
+        }
+        
+        .admin-btn.secondary {
+            background: var(--color-gris-claro);
+            color: var(--color-blanco);
+        }
+        
+        .admin-container {
+            padding: 40px 0;
+        }
+        
+        .form-section {
+            background: var(--color-gris);
+            padding: 30px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border: 1px solid var(--color-gris-claro);
+        }
+        
+        .form-section h3 {
+            color: var(--color-dorado);
+            margin-bottom: 20px;
+            border-bottom: 2px solid var(--color-dorado);
+            padding-bottom: 10px;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group.full-width {
+            grid-column: 1 / -1;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            color: var(--color-blanco);
+            font-weight: 500;
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid var(--color-gris-claro);
+            border-radius: 5px;
+            background: var(--color-negro);
+            color: var(--color-blanco);
+            font-size: 14px;
+            resize: vertical;
+        }
+        
+        .form-group textarea {
+            min-height: 100px;
+        }
+        
+        .content-block {
+            background: var(--color-gris-claro);
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border-left: 4px solid var(--color-dorado);
+        }
+        
+        .block-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .block-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn-small {
+            padding: 5px 10px;
+            font-size: 12px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        
+        .btn-remove {
+            background: #ff4444;
+            color: white;
+        }
+        
+        .articles-list {
+            margin-top: 40px;
+        }
+        
+        .article-item {
+            background: var(--color-gris);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            border: 1px solid var(--color-gris-claro);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .article-info h4 {
+            color: var(--color-dorado);
+            margin-bottom: 5px;
+        }
+        
+        .article-meta {
+            color: var(--color-gris-texto);
+            font-size: 14px;
+        }
+        
+        .preview-area {
+            background: var(--color-negro);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border: 1px solid var(--color-gris-claro);
+            max-height: 400px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Admin -->
+    <header class="admin-header">
+        <div class="container">
+            <nav class="admin-nav">
+                <div class="logo-container">
+                    <a href="index.html" class="logo-link">
+                        <img src="logo.png" alt="MASTER LEAGUES" class="logo-imagen">
+                        <div class="logo-text">MASTER LEAGUES - ADMIN</div>
+                    </a>
+                </div>
+                <div class="admin-actions">
+                    <a href="index.html" class="admin-btn secondary">
+                        <i class="fas fa-home"></i> Ver Sitio
+                    </a>
+                    <button class="admin-btn" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Panel de Administración -->
+    <section class="admin-container">
+        <div class="container">
+            <h2>Crear Nueva Noticia</h2>
+            
+            <form id="articleForm">
+                <!-- Información Básica -->
+                <div class="form-section">
+                    <h3>Información Básica</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="articleTitle">Título de la Noticia *</label>
+                            <input type="text" id="articleTitle" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="articleDate">Fecha de Publicación *</label>
+                            <input type="date" id="articleDate" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="articleAuthor">Autor *</label>
+                            <input type="text" id="articleAuthor" value="Equipo ML" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="articleCategory">Categoría *</label>
+                            <select id="articleCategory" required>
+                                <option value="Competencias">Competencias</option>
+                                <option value="Torneos">Torneos</option>
+                                <option value="Biografías">Biografías</option>
+                                <option value="Comunidad">Comunidad</option>
+                                <option value="Tutoriales">Tutoriales</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="articleImage">URL de Imagen Principal *</label>
+                        <input type="url" id="articleImage" placeholder="https://images.unsplash.com/..." required>
+                    </div>
+                    
+                    <div class="form-group full-width">
+                        <label for="articleDescription">Descripción de la Imagen</label>
+                        <input type="text" id="articleDescription" placeholder="Descripción que aparecerá bajo la imagen">
+                    </div>
+                </div>
+
+                <!-- Contenido Principal -->
+                <div class="form-section">
+                    <h3>Contenido Principal</h3>
+                    
+                    <div class="form-group full-width">
+                        <label for="articleIntro">Introducción *</label>
+                        <textarea id="articleIntro" placeholder="Primer párrafo que aparecerá en negrita..." required></textarea>
+                    </div>
+                    
+                    <div id="contentBlocks">
+                        <!-- Los bloques de contenido se agregarán aquí -->
+                    </div>
+                    
+                    <button type="button" class="admin-btn" onclick="addParagraph()">
+                        <i class="fas fa-paragraph"></i> Agregar Párrafo
+                    </button>
+                    
+                    <button type="button" class="admin-btn secondary" onclick="addSubtitle()">
+                        <i class="fas fa-heading"></i> Agregar Subtítulo
+                    </button>
+                    
+                    <button type="button" class="admin-btn secondary" onclick="addQuote()">
+                        <i class="fas fa-quote-left"></i> Agregar Cita
+                    </button>
+                    
+                    <button type="button" class="admin-btn secondary" onclick="addYoutube()">
+                        <i class="fab fa-youtube"></i> Agregar YouTube
+                    </button>
+                </div>
+
+                <!-- Sidebar Content -->
+                <div class="form-section">
+                    <h3>Contenido del Sidebar</h3>
+                    
+                    <div id="relatedNews">
+                        <h4>Noticias Relacionadas</h4>
+                        <!-- Las noticias relacionadas se agregarán aquí -->
+                    </div>
+                    
+                    <button type="button" class="admin-btn secondary" onclick="addRelatedNews()">
+                        <i class="fas fa-plus"></i> Agregar Noticia Relacionada
+                    </button>
+                </div>
+
+                <!-- Acciones -->
+                <div class="form-section">
+                    <h3>Guardar Noticia</h3>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="articleSlug">URL Amigable *</label>
+                            <input type="text" id="articleSlug" placeholder="nombre-noticia" required>
+                            <small>Ej: nuevo-campeon-liga-street</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="articleStatus">Estado</label>
+                            <select id="articleStatus">
+                                <option value="published">Publicar Ahora</option>
+                                <option value="draft">Guardar como Borrador</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="admin-btn" style="padding: 15px 30px; font-size: 18px;">
+                        <i class="fas fa-save"></i> Guardar Noticia
+                    </button>
+                    
+                    <button type="button" class="admin-btn secondary" onclick="previewArticle()">
+                        <i class="fas fa-eye"></i> Vista Previa
+                    </button>
+                </div>
+            </form>
+
+            <!-- Lista de Artículos Existentes -->
+            <div class="articles-list">
+                <h3>Noticias Existentes</h3>
+                <div id="articlesList">
+                    <!-- Las noticias se cargarán aquí -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="admin-script.js"></script>
+    <script>
+        // Verificar sesión
+        function checkSession() {
+            const session = JSON.parse(localStorage.getItem('adminSession') || '{}');
+            if (!session.loggedIn || Date.now() > session.expires) {
+                window.location.href = 'admin-login.html';
+            }
+        }
+        
+        function logout() {
+            localStorage.removeItem('adminSession');
+            window.location.href = 'admin-login.html';
+        }
+        
+        // Verificar sesión al cargar
+        checkSession();
+        setInterval(checkSession, 60000); // Verificar cada minuto
+    </script>
+</body>
+</html>
